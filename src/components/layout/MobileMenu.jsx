@@ -1,6 +1,7 @@
 import {useState} from "react";
 import styled from "styled-components";
 import {useNavigate} from "react-router-dom";
+import {LinkButton} from "../ui/LinkButton";
 
 const MenuContainer = styled.div`
   position: relative;
@@ -14,14 +15,16 @@ const MenuContainer = styled.div`
   }
 `;
 
-const HamburgerIcon = styled.div`
+const Icon = styled.div`
   font-size: 30px;
   cursor: pointer;
-  z-index: 10;
-  position: absolute;
-  top: ${(props) => (props.isOpen ? "-70px" : "-20px")};
-  right: ${(props) => (props.isOpen ? "0px" : "20px")};
+  z-index: 20;
   color: #555;
+`;
+
+const CloseIcon = styled(Icon)`
+  margin: 20px;
+  text-align: right;
 `;
 
 const SlideOutMenu = styled.div`
@@ -46,19 +49,6 @@ const List = styled.ul`
 const ListItem = styled.li`
   padding: 20px;
   text-align: center;
-
-  button {
-    font-size: 18px;
-    color: #555;
-    transition: ease 0.3s;
-    background: none;
-    border: none;
-  }
-  button:hover {
-    color: #111;
-    transition: ease 0.3s;
-    cursor: pointer;
-  }
 `;
 
 const Overlay = styled.div`
@@ -77,6 +67,7 @@ const Overlay = styled.div`
 export const MobileMenu = () => {
   const [isOpen, setIsOpen] = useState(false);
   const navigate = useNavigate();
+  const page = window.location.pathname;
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
@@ -86,52 +77,60 @@ export const MobileMenu = () => {
     <MenuContainer>
       <Overlay isOpen={isOpen} onClick={() => setIsOpen(false)} />
 
-      <HamburgerIcon isOpen={isOpen} onClick={toggleMenu}>
-        <i className={`fa ${isOpen ? "fa-times" : "fa-bars"}`} />
-      </HamburgerIcon>
+      <Icon onClick={toggleMenu}>
+        <i className="fa fa-bars" />
+      </Icon>
 
       <SlideOutMenu isOpen={isOpen}>
+        <CloseIcon onClick={toggleMenu}>
+          <i className="fa fa-times" />
+        </CloseIcon>
+
         <List>
           <ListItem>
-            <button
+            <LinkButton
               onClick={() => {
                 navigate("/architecture");
                 toggleMenu();
               }}
+              active={page === "/architecture"}
             >
               Architecture Projects
-            </button>
+            </LinkButton>
           </ListItem>
 
           <ListItem>
-            <button
+            <LinkButton
               onClick={() => {
                 navigate("/paintings-drawings");
                 toggleMenu();
               }}
+              active={page === "/paintings-drawings"}
             >
               Paintings & Drawings
-            </button>
+            </LinkButton>
           </ListItem>
           <ListItem>
-            <button
+            <LinkButton
               onClick={() => {
                 navigate("/photography");
                 toggleMenu();
               }}
+              active={page === "/photography"}
             >
               Photography
-            </button>
+            </LinkButton>
           </ListItem>
           <ListItem>
-            <button
+            <LinkButton
               onClick={() => {
                 navigate("/about");
                 toggleMenu();
               }}
+              active={page === "/about"}
             >
               About
-            </button>
+            </LinkButton>
           </ListItem>
         </List>
       </SlideOutMenu>

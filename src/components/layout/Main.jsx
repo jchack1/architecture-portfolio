@@ -2,6 +2,7 @@ import styled from "styled-components";
 import {Outlet} from "react-router-dom";
 import {MobileMenu} from "./MobileMenu";
 import {useNavigate} from "react-router-dom";
+import {LinkButton} from "../ui/LinkButton";
 
 const HomeButton = styled.h1`
   &:hover {
@@ -27,25 +28,12 @@ const LinkContainer = styled.div`
   @media (min-width: 700px) {
     display: flex;
   }
-
-  button {
-    font-size: 18px;
-    color: #555;
-    transition: ease 0.3s;
-    margin: 10px;
-    background: none;
-    border: none;
-  }
-
-  button:hover {
-    color: #111;
-    transition: ease 0.3s;
-    cursor: pointer;
-  }
 `;
 
 export const Main = () => {
   const navigate = useNavigate();
+
+  const page = window.location.pathname;
 
   return (
     <>
@@ -56,16 +44,30 @@ export const Main = () => {
           <div>
             <MobileMenu />
             <LinkContainer>
-              <button onClick={() => navigate("/architecture")}>
+              <LinkButton
+                onClick={() => navigate("/architecture")}
+                active={page === "/architecture"}
+              >
                 Architecture Projects
-              </button>
-              <button onClick={() => navigate("/paintings-drawings")}>
+              </LinkButton>
+              <LinkButton
+                onClick={() => navigate("/paintings-drawings")}
+                active={page === "/paintings-drawings"}
+              >
                 Paintings & Drawings
-              </button>
-              <button onClick={() => navigate("/photography")}>
+              </LinkButton>
+              <LinkButton
+                onClick={() => navigate("/photography")}
+                active={page === "/photography"}
+              >
                 Photography
-              </button>
-              <button onClick={() => navigate("/about")}>About</button>
+              </LinkButton>
+              <LinkButton
+                onClick={() => navigate("/about")}
+                active={page === "/about"}
+              >
+                About
+              </LinkButton>
             </LinkContainer>
           </div>
         </NavigationContainer>
