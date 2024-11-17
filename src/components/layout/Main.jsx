@@ -4,14 +4,18 @@ import {MobileMenu} from "./MobileMenu";
 import {useNavigate} from "react-router-dom";
 import {LinkButton} from "../ui/LinkButton";
 
-const HomeButton = styled.h1`
+const HomeButton = styled.p`
+  font-size: 40px;
+  font-family: "Special Elite", system-ui;
+  margin: 10px;
+  font-weight: 700;
   &:hover {
     cursor: pointer;
   }
 `;
-const MainContainer = styled.main`
-  margin: 0 6vw;
-`;
+
+const MainContainer = styled.main``;
+
 const NavigationContainer = styled.div`
   display: flex;
   justify-content: space-between;
@@ -28,6 +32,13 @@ const LinkContainer = styled.div`
   @media (min-width: 700px) {
     display: flex;
   }
+`;
+
+const Footer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 5vh;
 `;
 
 export const Main = () => {
@@ -76,6 +87,10 @@ export const Main = () => {
       <MainContainer>
         <Outlet />
       </MainContainer>
+
+      <Footer>
+        <i class="fa-brands fa-instagram" style={{fontSize: 30}}></i>
+      </Footer>
     </>
   );
 };
