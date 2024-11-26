@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import {Link} from "react-router-dom";
 import {Header} from "../components/ui/Header";
 import {PageContent} from "../components/ui/PageContent";
 import {ImageContainerSquare} from "../components/ui/images/ImageContainerSquare";
@@ -48,20 +49,38 @@ export const Home = () => {
         </IntroParagraphContainer>
 
         <IntroContentContainer>
-          <TextImageContainer>
-            <p>Architecture</p>
-            <ImageContainerSquare imageUrl={image1} />
-          </TextImageContainer>
+          <Link
+            to={{
+              pathname: "/architecture",
+            }}
+          >
+            <TextImageContainer>
+              <p>Architecture</p>
+              <ImageContainerSquare imageUrl={image1} />
+            </TextImageContainer>
+          </Link>
 
-          <TextImageContainer>
-            <p>Drawings/Paintings</p>
-            <ImageContainerSquare imageUrl={image2} />
-          </TextImageContainer>
+          <Link
+            to={{
+              pathname: "/paintings-drawings",
+            }}
+          >
+            <TextImageContainer>
+              <p>Paintings/Drawings</p>
+              <ImageContainerSquare imageUrl={image2} />
+            </TextImageContainer>
+          </Link>
 
-          <TextImageContainer>
-            <p>Photogrpahy</p>
-            <ImageContainerSquare imageUrl={image3} />
-          </TextImageContainer>
+          <Link
+            to={{
+              pathname: "/photography",
+            }}
+          >
+            <TextImageContainer>
+              <p>Photography</p>
+              <ImageContainerSquare imageUrl={image3} />
+            </TextImageContainer>
+          </Link>
         </IntroContentContainer>
       </PageContent>
     </>
