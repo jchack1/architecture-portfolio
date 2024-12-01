@@ -1,9 +1,8 @@
 import styled from "styled-components";
-import {Link} from "react-router-dom";
 import {Header} from "../components/ui/Header";
 import {PageContent} from "../components/ui/PageContent";
-import {ImageContainerSquare} from "../components/ui/images/ImageContainerSquare";
-//iamges
+import {ImageLinkWithText} from "../components/ui/images/ImageLinkWithText";
+//images
 import image1 from "../assets/images/header/image1.jpg";
 import image2 from "../assets/images/header/image2.jpg";
 import image3 from "../assets/images/header/image3.jpg";
@@ -18,18 +17,12 @@ const IntroParagraphContainer = styled.div`
 const IntroContentContainer = styled.div`
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
 
   @media (max-width: 700px) {
     flex-direction: column;
     align-items: center;
   }
-`;
-
-const TextImageContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  margin: 20px;
-  align-items: center;
 `;
 
 export const Home = () => {
@@ -49,38 +42,23 @@ export const Home = () => {
         </IntroParagraphContainer>
 
         <IntroContentContainer>
-          <Link
-            to={{
-              pathname: "/architecture",
-            }}
-          >
-            <TextImageContainer>
-              <p>Architecture</p>
-              <ImageContainerSquare imageUrl={image1} />
-            </TextImageContainer>
-          </Link>
+          <ImageLinkWithText
+            imageUrl={image1}
+            pagePath="/architecture"
+            text="Architecture"
+          />
 
-          <Link
-            to={{
-              pathname: "/paintings-drawings",
-            }}
-          >
-            <TextImageContainer>
-              <p>Paintings/Drawings</p>
-              <ImageContainerSquare imageUrl={image2} />
-            </TextImageContainer>
-          </Link>
+          <ImageLinkWithText
+            imageUrl={image2}
+            pagePath="/paintings-drawings"
+            text="Paintings/Drawings"
+          />
 
-          <Link
-            to={{
-              pathname: "/photography",
-            }}
-          >
-            <TextImageContainer>
-              <p>Photography</p>
-              <ImageContainerSquare imageUrl={image3} />
-            </TextImageContainer>
-          </Link>
+          <ImageLinkWithText
+            imageUrl={image3}
+            pagePath="/photography"
+            text="Photography"
+          />
         </IntroContentContainer>
       </PageContent>
     </>
