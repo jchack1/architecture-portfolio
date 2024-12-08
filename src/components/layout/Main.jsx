@@ -57,7 +57,7 @@ export const Main = () => {
             <LinkContainer>
               <LinkButton
                 onClick={() => navigate("/architecture")}
-                active={page === "/architecture"}
+                active={page.includes("/architecture")}
               >
                 Architecture Projects
               </LinkButton>

@@ -32,6 +32,7 @@ export const ImageLinkWithText = ({
   text,
   size = "small",
 }) => {
+  console.log(pagePath);
   return (
     <Link
       to={{

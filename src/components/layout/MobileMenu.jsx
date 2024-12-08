@@ -93,7 +93,7 @@ export const MobileMenu = () => {
                 navigate("/architecture");
                 toggleMenu();
               }}
-              active={page === "/architecture"}
+              active={page.includes("/architecture")}
             >
               Architecture Projects
             </LinkButton>

@@ -27,13 +27,13 @@ export const Architecture = () => {
       <ImageLinkContainer>
         <ImageLinkWithText
           imageUrl={image1}
-          pagePath="/architecture"
+          pagePath="/architecture/projects/project1"
           text="Project 1"
           size="large"
         />
         <ImageLinkWithText
           imageUrl={image2}
-          pagePath="/architecture"
+          pagePath="/architecture/projects/project2"
           text="Project 1"
           size="large"
         />
